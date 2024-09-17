@@ -26,4 +26,7 @@ krewes = {
          }
 x = krewes.get(int(random.randint(4,5))) # selecting a random key
 
-print(x[random.randint(0,len(x)-1)]) # selecting a random value from the selected array and printing it
+randomName = x[random.randint(0,len(x)-1)] # selecting a random value from the selected array and printing it
+
+print("The random name selected is...")
+print(randomName)
