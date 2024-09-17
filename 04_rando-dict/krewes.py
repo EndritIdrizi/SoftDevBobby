@@ -5,7 +5,7 @@ SoftDev
 K04 -- Python dictionaries and random selection/Python/To access a random value in a dictionary one must be able to acess a random key and
 random values within any lists that may lie inside that key
 2024-09-13
-time spent: <elapsed time in hours, rounded to nearest tenth>
+time spent: 0.5 hours
 """
 
 import random
