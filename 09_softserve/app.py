@@ -9,7 +9,8 @@ import random
 import csv 
 from flask import Flask 
 
-app = Flask(__name__) 
+app = Flask(__name__)
+
 def readfile(f): 
     d = {} 
     with open (f, 'r') as listfile: 
@@ -19,8 +20,8 @@ def readfile(f):
             job = row[0] 
             if job == "Total": 
                 continue 
-                percent = float(row[1]) 
-                d[job] = percent 
+            percent = float(row[1]) 
+            d[job] = percent 
     return d 
 def sel(d): 
     return random.choices(list(d.keys()), weights=d.values(), k=1)[0] 
