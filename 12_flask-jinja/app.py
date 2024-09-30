@@ -25,7 +25,7 @@ paramaters for the value and the title respectively.
 # Q0: What will happen if you remove render_template from the following statement?
 # (log prediction before executing...)   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-from flask import Flask , render_template
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")

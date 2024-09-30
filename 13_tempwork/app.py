@@ -1,9 +1,9 @@
 # Endrit Idrizi
-# China Rats Plus One 
+# Minerals FC - Endrit, Ben, Vedant
 # SoftDev 
-# <K09: CSV file parsing, flask, displaying to HTML> 
-# 2024-9-24 
-# Time Spent : 0.5 Hours 
+# K13: CSV file parsing, flask, displaying to HTML as a table with links 
+# 2024-9-30
+# Time Spent : Hours 
 
 import random 
 import csv 
@@ -29,7 +29,7 @@ def sel(d):
 @app.route("/") 
 
 def page(): 
-    occ = sel(readfile("occupations.csv")) 
+    occ = sel(readfile("data/occupations.csv")) 
     code = """ 
     <!DOCTYPE html> 
     <html> 
