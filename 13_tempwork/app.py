@@ -3,45 +3,43 @@
 # SoftDev 
 # K13: CSV file parsing, flask, displaying to HTML as a table with links 
 # 2024-9-30
-# Time Spent : Hours 
+# Time Spent : 1.5 Hours 
 
-import random 
-import csv 
-from flask import Flask 
+import random
+import csv
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-def readfile(f): 
-    d = {} 
-    with open (f, 'r') as listfile: 
-        reader = csv.reader(listfile) 
-        next(reader) 
-        for row in reader: 
-            job = row[0] 
-            if job == "Total": 
-                continue 
-            percent = float(row[1]) 
-            d[job] = percent 
-    return d 
-def sel(d): 
-    return random.choices(list(d.keys()), weights=d.values(), k=1)[0] 
+# read csv and return dictionary with job data
+def readfile(f):
+    d = {}
+    with open(f, 'r') as listfile:
+        reader = csv.DictReader(listfile)
+        for row in reader:
+            job = row['Job Class']
+            if job == "Total":
+                continue # skip total
+            percent = float(row['Percentage'])
+            link = row['Link'] # read links as well{'percentage': percent, 'link': link}
+            d[job] = {'percentage': percent, 'link': link}
+    return d        
+            
+# randomly select occupation based on weighted chance
+def sel(d):
+    return random.choices(list(d.keys()), weights=[v['percentage'] for v in d.values()], k=1)[0]
 
-@app.route("/") 
-
-def page(): 
-    occ = sel(readfile("data/occupations.csv")) 
-    code = """ 
-    <!DOCTYPE html> 
-    <html> 
-        <body> 
-            <p>China Rats Plus One with Jackie, Yinwei, Wen. Traveling team with Yinwei, Endrit, Raymond.</p> 
-            <h1>This time: """ + occ + """ <h2>Occupations</h2> """ 
-    for a, b in readfile("occupations.csv").items(): 
-        code += "<li>" + a + ": " + str(b) + "</li>" 
-
-    code += "</body></html>" 
-    return code
-
-if __name__ == "__main__": 
-    app.debug = True 
+@app.route("/wdywtbwygp")
+def page():
+    occupations = readfile("data/occupations.csv")
+    random_job = sel(occupations)
+    return render_template(
+        "tablified.html",
+        tnpg_roster="Minerals FC - Endrit, Ben, Vedant",
+        occupations=occupations,
+        random_job=random_job
+    )
+    
+if __name__ == "__main__":
+    app.debug = True # comment out later
     app.run()
