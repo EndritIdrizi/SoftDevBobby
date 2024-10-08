@@ -1,8 +1,11 @@
-# Endrit Idrizi
-# JED
-# SoftDev
-# K14 Intake 
-# October 7th, 2024
+'''
+Endrit Idrizi, Jayden Zhang
+JED
+SoftDev
+K14 -- Intake
+2024-10-8
+time spent: 0.5 hrs
+'''
 
 # import conventions:
 # list most general first (standard python library)
@@ -45,19 +48,19 @@ PROTIP: Insert your own in-line comments
 def disp_loginpage():
     #print("\n\n\n")
     #print("***DIAG: this Flask obj ***")
-    #print(app)  #went up to here on single tests
+    #print(app)
     #print("***DIAG: request obj ***")
     #print(request)
     #print("***DIAG: request.args ***")
     #print(request.args)
     #print("***DIAG: request.args['username']  ***")
-    #print(request.args['username'])
+    #print(request.args['username']) # this gives an BadKeyError
     #print("***DIAG: request.headers ***")
     #print(request.headers)
     return render_template( 'login.html' )
 
 
-@app.route("/auth") # , methods=['GET', 'POST'])
+@app.route("/auth") #, methods=['GET', 'POST'])
 def authenticate():
     print("\n\n\n")
     print("***DIAG: this Flask obj ***")
@@ -67,7 +70,7 @@ def authenticate():
     print("***DIAG: request.args ***")
     print(request.args)
     print("***DIAG: request.args['username']  ***")
-    print(request.args['username'])
+    print(request.args['username']) # this also gives an BadKeyError when linked to directly, BUT NOT WHEN YOU SUBMIT A NAME!!!
     print("***DIAG: request.headers ***")
     print(request.headers)
     return "Waaaa hooo HAAAH"  #response to a form submission
