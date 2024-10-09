@@ -64,8 +64,8 @@ blurry scrambled words and techy stuff at this point.
 
 OTHER?
 * What is PyCache? I think cache is like the data that is temporarily 
-stored using RAM (maybe), so maybe PyCache is python's cache??
+stored using RAM (maybe), so maybe PyCache is python's cache??   ---> Piazza Post
 * Request module is used for form submission.
 * Can I have multiple functions with an app.route('/'). I've always
-been curious whether or not this was possible :crying_face_emoji:
+been curious whether or not this was possible. What happens if I have a second one with the app.route('/')
 -----------------------------------------------------------------------

@@ -20,7 +20,7 @@ def primary():
 def submit():
     username = request.args.get('username') if request.method == 'GET' else request.form.get('username')
     method_used = request.method
-    greeting = "Hey there {username}. We hope you like this page"
+    greeting = "Hey there " + username + ". We hope you like this page"
     explanation = '''
     GET sends data via the URL, making it more useful for taking information.
     POST sends data through the body which makes it more useful for modifying data on the server side.
