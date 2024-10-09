@@ -1,0 +1,2 @@
+-- cookie recieved from server - request.cookies.get(KEY)
+-- cookie checked by server - request.cookies.get('username')
