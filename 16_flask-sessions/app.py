@@ -1,31 +1,53 @@
 '''
-Endrit Idrizi, Vedant Kothari, Suhana Kumar
-Team Name: Albania
-K15 - Echoing responses
-2024-10-08
+JED - Jayden Zhang, Endrit Idrizi
+SoftDev
+K16 - Flask-Form - Learning and Experimenting with Flask GET and POST Methods.
+2024-10-9
+time spent: 1 hrs
 '''
 
-from flask import Flask, render_template, request
+# import conventions:
+# list most general first (standard python library)
+# ...then pip installs (eg Flask)
+# ...then your own home-rolled modules/packages (today's test module)
 
-app = Flask(__name__)
+from flask import Flask             #facilitate flask webserving
+from flask import render_template   #facilitate jinja templating
+from flask import request           #facilitate form submission
+import os
 
-T_name = "Albania"
-roster = ["Endrit Idrizi, Vedant Kothari, Suhana Kumar"]
+#the conventional way:
+#from flask import Flask, render_template, request
 
-@app.route('/')
-def primary():
-    return render_template('primary.html',T_name=T_name,roster=roster)
+app = Flask(__name__)    #create Flask object
 
-@app.route('/submit', methods=['GET', 'POST'])
-def submit():
-    username = request.args.get('username') if request.method == 'GET' else request.form.get('username')
-    method_used = request.method
-    greeting = "Hey there " + username + ". We hope you like this page"
-    explanation = '''
-    GET sends data via the URL, making it more useful for taking information.
-    POST sends data through the body which makes it more useful for modifying data on the server side.
-    '''
-    return render_template('secondary.html', username=username, method=method_used, greeting=greeting, explanation=explanation, T_name=T_name,roster=roster)
+@app.route("/", methods=['GET', 'POST'])
+def disp_loginpage():
+    return render_template('login.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+@app.route("/signUp", methods=['GET'])
+def signUp():
+    gvp = "The difference between the GET and POST methods lies in the way data is retrieved. GET checks the dictionary (args) for a key that matches the input, while POST essentially pushes your data to the servers POST dictionary (form). Both are sent as QueryStrings REQUESTS."
+    username = request.args["username"] # GET uses request.form.
+
+    app.secret_key = os.urandom(32)
+
+@app.route("/logIn", methods=['GET'])
+def logIn():
+    gvp = "The difference between the GET and POST methods lies in the way data is retrieved. GET checks the dictionary (args) for a key that matches the input, while POST essentially pushes your data to the servers POST dictionary (form). Both are sent as QueryStrings REQUESTS."
+    username = request.args["username"] # GET uses request.form.
+
+    app.secret_key = os.urandom(32)
+
+@app.route("/logOut", methods=['GET'])
+def logOut():
+    username = request.args["username"] # GET uses request.form.
+
+    app.secret_key = os.urandom(32)
+
+
+if __name__ == "__main__": #false if this file imported as module
+    #enable debugging, auto-restarting of server when this file is modified
+    app.debug = True 
+    app.run()
