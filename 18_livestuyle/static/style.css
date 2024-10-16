@@ -7,15 +7,15 @@ Time spent - 1.0 hours
  */
 body {
     background-color: grey;
-    border: 10px solid;
+    border: 30px solid;
     border-color: dimgrey;
-}
+    }
 
 h1 {
     background-color: lightgrey;
     color: white;
     text-align: center;
-}
+    }
 
 h2 {
     margin: 0;
@@ -24,15 +24,22 @@ h2 {
         color: black;
         text-decoration: none;
     }
-}
+    }
 
 p {
     display: flex;
-}
+    }
+
+footer{
+    float: right;
+    background-color: dimgrey;
+    color: white;
+    padding-top: 5px
+    }
 
 .columns {
     align-items: flex-end;
-}
+    }
 
 #navbar {
     list-style-type: none;
@@ -44,20 +51,20 @@ p {
     overflow: hidden;
     float: left;
     height: 200px;
-}
+    }
 
 .navLI {
     display: inline;
     margin-right: 20px;
-}
+    }
 
 .navLI a {
     text-decoration: none;
     color: white;
     font-size: 16px;
-}
+    }
 
 .navLI a:hover {
     text-decoration: none;
     color: black;
-}
+    }
