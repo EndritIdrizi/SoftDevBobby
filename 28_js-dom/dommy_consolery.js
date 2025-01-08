@@ -130,9 +130,9 @@ console.log(fact(5));
 
 //-----------------------------------------------------------------
 // GCD
-var gcd = function(a,b){
-  if (a == b) return a;
-  if
+var gcd = function(a, b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
 }
 
 
