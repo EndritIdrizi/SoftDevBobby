@@ -4,29 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Connections</title>
+  <style>
+	.flex-table {
+	  display: flex;
+	  flex-wrap: wrap;
+	  width: 300px;
+	  gap: 10px;
+	  justify-content: center; 
+	  align-items: center; 
+	  margin: auto; 
+	}
+
+	.flex-table label {
+	  width: 15%; 
+	  text-align: center; 
+	  padding: 10px;
+	  background-color: lightblue;
+	  border: 1px solid gray; 
+	  border-radius: 5px; 
+	  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); 
+	  cursor: pointer;
+	}
+  </style>
 </head>
 <body>
   <h1>Connections</h1>
-  <input type="text" id="wordInput" maxlength="5" placeholder="Enter a 5-letter word" />
-  <label id="1"> word </label>
-  <label id="2"> word </label>
-  <label id="3"> word </label>
-  <label id="4"> word </label>
-  <label id="5"> word </label>
-  <label id="6"> word </label>
-  <label id="7"> word </label>
-  <label id="8"> word </label>
-  <label id="9"> word </label>
-  <label id="10"> word </label>
-  <label id="11"> word </label>
-  <label id="12"> word </label>
-  <label id="13"> word </label>
-  <label id="14"> word </label>
-  <label id="15"> word </label>
+  <div class="flex-table">
+	<label id="1">word1</label>
+	<label id="2">word2</label>
+	<label id="3">word3</label>
+	<label id="4">word4</label>
+	<label id="5">word5</label>
+	<label id="6">word6</label>
+	<label id="7">word7</label>
+	<label id="8">word8</label>
+	<label id="9">word9</label>
+	<label id="10">word10</label>
+	<label id="11">word11</label>
+	<label id="12">word12</label>
+	<label id="13">word13</label>
+	<label id="14">word14</label>
+	<label id="15">word15</label>
+	<label id="16">word16</label>
+  </div>
   <button id="submitButton">Submit</button>
   <div id="message"></div>
   <div id="results"></div>
 
-  <script src="new.js"></script>
+  <script src="connections.js"></script>
 </body>
 </html>
