@@ -25,6 +25,9 @@ Step 3: Setting up a Flask App
     sudo ufw allow 5000
 
     //try to run 35 now, check with droplet ip
+    //the following must be in your app    
+    if __name__ == "__main__":
+        app.run(host='0.0.0.0')
     -- > issue here!! it is not running
 
     //create wsgi Entry point
@@ -34,4 +37,50 @@ Step 3: Setting up a Flask App
     if __name__ == "__main__":
         app.run()
     
-    
+Step 4: Configuring uWSGI
+    //try
+    uwsgi --socket 0.0.0.0:5000 --protocol=http -w wsgi:app
+    //visit server ip adress followed by :5000 again
+
+    follow by deactivating your venv
+
+    //creating a uWSGI configuration file
+    nano ~/myproject/myproject.ini //call it __init__.ini
+
+    //containg
+
+    [uwsgi]
+    module = wsgi:app
+
+    master = true
+    processes = 5
+
+    socket = myproject.sock
+    chmod-socket = 660
+    vacuum = true
+
+    die-on-term = true
+
+Step 5: Creating a systemd unit file
+    //create a new file within the etc/systemd/system/ directory called __init__.service ---> cant find dir?
+    //that file will contain the follwing
+
+    [Unit]
+    Description=uWSGI instance to serve myproject
+    After=network.target
+
+    [Service]
+    User=(youruser)
+    Group=www-data
+    WorkingDirectory=/home/(youruser)/myproject
+    Environment="PATH=/home/(youruser)/myproject/myprojectenv/bin"     //these routes may be different
+    ExecStart=/home/(youruser)/myproject/myprojectenv/bin/uwsgi --ini myproject.ini
+
+    [Install]
+    WantedBy=multi-user.target
+
+
+
+
+
+
