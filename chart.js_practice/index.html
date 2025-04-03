@@ -8,23 +8,34 @@
   <title> testing chart.js </title>
 </head>
 <body>
-  <div class="container">
-    <canvas id="myChart" role="img"></canvas>
+  <div>
+    <canvas id="myChart"></canvas>
   </div>
-  <script type="text/javascript">
-    let myChart = document.getElementById('myChart').getContext('2d');
 
-    let allChart = new Chart(myChart, {
-      type:'bar', //bar,horizontalBar,pie,line,donut,radar,polarArea
-      data:{
-        labels:['five','seven', 'twelve'],
-        datasets:[{
-          label:'numbers',
-          data:[5,7,12]
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
         }]
       },
-      options:{}
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
     });
   </script>
+
 </body>
 </html>
