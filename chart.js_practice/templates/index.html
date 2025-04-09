@@ -19,10 +19,10 @@
     new Chart(ctx, {
       type: '{{ __type__ }}',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: {{ __label_array__ | safe }},
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          label: '{{ __label__ | safe }}',
+          data: {{ __data_array__ | safe}},
           borderWidth: 1
         }]
       },
